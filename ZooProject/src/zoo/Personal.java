@@ -2,11 +2,11 @@ package zoo;
 
 public class Personal extends Personen {
 
-	private Zoo arbeitsplatz;
+//	private Zoo arbeitsplatz;
 
 	public Personal(String name, int alter, Zoo arbeitsplatz) {
 		super(name, alter);
-		this.arbeitsplatz = arbeitsplatz;
+//		this.arbeitsplatz = arbeitsplatz;
 
 		System.out.println(name + " arbeitet jetzt bei " + arbeitsplatz.getName());
 
@@ -40,6 +40,7 @@ public class Personal extends Personen {
 
 				if (gehege[k] != null && gehege[k].getTiere()[i] != null) {
 					System.out.println(getName() + " betreut " + gehege[k].getTiere()[i].getName());
+//					System.out.println(getName() + " betreut " + gehege[k].getTiere()[i].
 				}
 
 			}
