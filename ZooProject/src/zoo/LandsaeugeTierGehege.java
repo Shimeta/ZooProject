@@ -5,8 +5,9 @@ public class LandsaeugeTierGehege extends Gehege {
 	public LandsaeugeTierGehege(String name, Zoo owner) {
 		super(name, owner);
 		
-	
+		
 	}
+	
 	public void setTiere(Tier[] tiere) {
 		//Array von Tieren werden hier übergegeben
 		//Hier muss noch eingeschränkt werden ... also dass z.B nur Vögel dem Vogelgehege zugeordnet werden dürfen
@@ -21,20 +22,23 @@ public class LandsaeugeTierGehege extends Gehege {
 	}
 	
 	public void addTier(Tier tier) {
-		//ein einzelnes Tier wird hinzugefügt zum Gehege
-		//muss auch noch eingeschränkt werden
-		int tiere_array_counter = 0;
+		
+		//setzt das Tier in den Array ein nur einmal 
+		
+	boolean anima_inside = false;
 		
 		for(int l= 0; l< this.tiere.length; l++) {
 			
-			if(this.tiere[l] != null) {
+			if(this.tiere[l] == null && anima_inside == false) {
 				
-				tiere_array_counter++;
+				this.tiere[l] = tier;
+				
+				anima_inside = true;
 			}
-			
 		}
+
 		
-		this.tiere[tiere_array_counter+1] = tier;
+		
 		
 		System.out.println(tier.getName()+ " wurde dem "+ this.getName()+" zugeordnet");
 		

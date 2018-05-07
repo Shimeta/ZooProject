@@ -133,9 +133,9 @@ public class Main {
 		
 		
 		Personal[] a = new Personal[3];
-		Personal Ramsay = new Personal("Ramsay", 22,sayan_zoo);
-		Personal Sam = new Personal("Sam", 32,sayan_zoo);
-		Personal Daenerys = new Personal("Daenerys", 25,sayan_zoo);
+		Personal Ramsay = new Personal("Ramsay", 22,sayan_zoo,null);
+		Personal Sam = new Personal("Sam", 32,sayan_zoo,null);
+		Personal Daenerys = new Personal("Daenerys", 25,sayan_zoo,null);
 		a[0] = Ramsay;
 		a[1] = Sam;
 		a[2] = Daenerys;
@@ -169,12 +169,18 @@ public class Main {
 		
 		//Besucher
 		
-		Besucher Caitlyn = new Besucher("Caitlyn", 22);
-		Besucher Aerys = new Besucher("Aerys", 22);
-		Besucher Bronn = new Besucher("Bronn", 22);
-		Besucher Sansa = new Besucher("Sansa", 22);
-		Besucher Willy = new Besucher("Willy", 22);
+		Besucher Caitlyn = new Besucher("Caitlyn", 22,null);
+		Besucher Aerys = new Besucher("Aerys", 22, null);
+		Besucher Bronn = new Besucher("Bronn", 22,null);
+		Besucher Sansa = new Besucher("Sansa", 22,null);
+		Besucher Willy = new Besucher("Willy", 22,null);
 		
+		Besucher[] besucher_arr = new Besucher[5];
+		besucher_arr[0] = Caitlyn;
+		besucher_arr[1] = Aerys;
+		besucher_arr[2] = Bronn;
+		besucher_arr[3] = Sansa;
+		besucher_arr[4] = Willy;
 		
 		//System.out.println(sayan_zoo.aquarium[0].getName());
 		
@@ -188,55 +194,15 @@ public class Main {
 		
 		
 		
-		
-		
-		
-		
-		//Test
-		/*
-		/////Zoo kreation
-		Zoo sayan_zoo = new Zoo("SayanZoo",null,null);
-		
-		String[] gehege_names = new String[4];
-		gehege_names[0] = "Ultima Gehege";
-		gehege_names[1] = "Super Gehege";
-		gehege_names[2] = "Steppe";
-		
-		sayan_zoo.setVogelgehege(gehege_names, sayan_zoo,3);
-		
-		/////Personal kreation
-			Personal Seymor = new Personal("Seymor", 22,sayan_zoo);
-			Personal Biggs = new Personal("Biggs", 32,sayan_zoo);
-			Personal Wedge = new Personal("Wedge", 25,sayan_zoo);
+		sayan_zoo.outputZustand();
+		for(int i=0; i< besucher_arr.length; i++) {
 			
-			Personal[] a = new Personal[3];
+			besucher_arr[i].outputBesucherZustand();
 			
-			a[0] = Seymor;
-			a[1] = Biggs;
-			a[2] = Wedge;
-			
-			sayan_zoo.setAngestellte(a);
-	
-		/////Tier kreation
-			Adler Squardo = new Adler("Squardo", 3, sayan_zoo, sayan_zoo.vogelgehege);
-			Adler Tick = new Adler("Tick", 3,sayan_zoo,sayan_zoo.vogelgehege);
-			
-			Tier[] b = new Tier[3];
-			b[0] = Squardo;
-			b[1] = Tick;
+		}
 		
-			sayan_zoo.setTiere(b);
-			sayan_zoo.vogelgehege[0].setTiere(b);
-
-			
-		/////Outputs
-	
 		
-		//System.out.println(sayan_zoo.getName()+" "+sayan_zoo.getAngestellte()[2].getName());
-		System.out.println(sayan_zoo.vogelgehege[0].getTiere()[1].getName()+" "+sayan_zoo.getTiere()[0].getName());
-	
-	
-		*/
+		
 	}
 
 }

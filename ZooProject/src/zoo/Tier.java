@@ -1,13 +1,6 @@
 package zoo;
 
-interface ITier {
-	public String getName();
-	public void setName(String name);
-	public Zoo getZoo();
-	public void setZoo(Zoo zoo);
-}
-
-public abstract class Tier implements ITier{
+public abstract class Tier {
 
 	private String name;
 	private int alter;

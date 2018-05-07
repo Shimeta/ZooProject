@@ -3,13 +3,15 @@ package zoo;
 public abstract class Gehege {
 
 	private String name;
-//	private Zoo owner;
+	private Zoo owner;
 	protected Tier[] tiere;
 	public int tier_array_index;
+	public int tier_counter = 0;
+	
 	
 	public Gehege(String name, Zoo owner) {
 		this.setName(name);
-//		this.owner=owner;
+		this.owner=owner;
 		//Array von tieren ist pro Gehege maximal 10
 		//wird beim erstellen direkt initialisiert
 		//man muss dann die Tier über einen Array mit setTiere diesem Array zuordnen
