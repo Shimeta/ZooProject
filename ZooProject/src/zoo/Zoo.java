@@ -59,13 +59,13 @@ public class Zoo {
 			
 			if(gehege_count < 9) {
 			
-			this.vogelgehege[i] = new Vogelgehege(name[i],zoo);
-			System.out.println(this.name+" "+"hat jetzt ein neues Vogelgehege mit der Bezeichnung"+" "+name[i]);
-			gehege_count++;
-			if(gehege_count == 9) {
-				System.out.println(this.name+" "+"hat die max Gehegeanzahl erreicht");
+				this.vogelgehege[i] = new Vogelgehege(name[i],zoo);
+				System.out.println(this.name+" "+"hat jetzt ein neues Vogelgehege mit der Bezeichnung"+" "+name[i]);
+				gehege_count++;
+				if(gehege_count == 9) {
+					System.out.println(this.name+" "+"hat die max Gehegeanzahl erreicht");
 				break;
-			}
+				}
 			}
 			
 		}
@@ -78,13 +78,13 @@ public void setLandsaeugeTierGehege(String[] name, Zoo zoo, int landsaeuge_geheg
 			
 			if(gehege_count < 9) {
 			
-			this.landsaeugetiergehege[i] = new LandsaeugeTierGehege(name[i],zoo);
-			System.out.println(this.name+" "+"hat jetzt ein neues Landsaeugetiergehege mit der Bezeichnung"+" "+name[i]);
-			gehege_count++;
-			if(gehege_count == 9) {
-				System.out.println(this.name+" "+"hat die max Gehegeanzahl erreicht");
-				break;
-			}
+				this.landsaeugetiergehege[i] = new LandsaeugeTierGehege(name[i],zoo);
+				System.out.println(this.name+" "+"hat jetzt ein neues Landsaeugetiergehege mit der Bezeichnung"+" "+name[i]);
+				gehege_count++;
+				if(gehege_count == 9) {
+					System.out.println(this.name+" "+"hat die max Gehegeanzahl erreicht");
+					break;
+				}
 			}
 		}
 		
@@ -96,14 +96,14 @@ public void setAquarium(String[] name, Zoo zoo, int aqua_gehege_count) {
 		
 		if(gehege_count < 9 ){
 		
-		this.aquarium[i] = new Aquarium(name[i],zoo);
-		System.out.println(this.name+" "+"hat jetzt ein neues Aquarium mit der Bezeichnung"+" "+name[i]);
-		gehege_count++;
+			this.aquarium[i] = new Aquarium(name[i],zoo);
+			System.out.println(this.name+" "+"hat jetzt ein neues Aquarium mit der Bezeichnung"+" "+name[i]);
+			gehege_count++;
 		
-		if(gehege_count == 9) {
-			System.out.println(this.name+" "+"hat die max Gehegeanzahl erreicht");
-			break;
-		}
+			if(gehege_count == 9) {
+				System.out.println(this.name+" "+"hat die max Gehegeanzahl erreicht");
+				break;
+			}
 		}
 	
 	}
