@@ -37,14 +37,7 @@ public abstract class Gehege {
 
 
 	public abstract void setTiere(Tier[] tiere);
-	
-	
 	public abstract void addTier(Tier tier);
-	
-	
-	
-	
-	
 	
 }
 

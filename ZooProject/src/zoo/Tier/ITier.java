@@ -23,6 +23,6 @@ public interface ITier {
 	public void setZoo(Zoo zoo);
 	
 	public void fuettere(Personal personal); //implemented. Gibt aus, dass tier von personal gefüttert wird.
-	public void lebtIn(String gehege, Gehege neuesGehege, Gehege altesGehege, Zoo zuu); //implemented
+	public void lebtIn(/*String gehege, Gehege neuesGehege, */Gehege gehege); //implemented
 		
 }

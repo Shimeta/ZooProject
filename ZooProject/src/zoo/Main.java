@@ -79,30 +79,34 @@ public class Main {
 		
 		
 		//Schritt 4
+		System.out.print("\nSchritt 4:\n");
 		//5 Zebras Eddard Robb Wald Rest Steppe
 		
-		Tier[] zebras = new Tier[5];
+		//Tier[] zebras = new Tier[5];
 		Zebra Zalana = new Zebra("Zalana",7,sayan_zoo,sayan_zoo.landsaeugetiergehege[0]);
 		Zebra Eddard = new Zebra("Eddard",7,sayan_zoo,sayan_zoo.landsaeugetiergehege[1]);
 		Zebra Bran = new Zebra("Bran",7,sayan_zoo,sayan_zoo.landsaeugetiergehege[0]);
 		Zebra Robb = new Zebra("Robb",7,sayan_zoo,sayan_zoo.landsaeugetiergehege[1]);
 		Zebra Arya = new Zebra("Arya",7,sayan_zoo,sayan_zoo.landsaeugetiergehege[0]);
 		
+		/*
 		zebras[0] = Zalana;
 		zebras[1] = Eddard;
 		zebras[2] = Bran;
 		zebras[3] = Robb;
 		zebras[4] = Arya;
-		
+		Nicht verwendet 
+		*/
+		//addtier in LansaugeTierGehege unterscheidet jz zw Lansäugetieren und keinen (Loewe und Zebra ist white-listet)
 		sayan_zoo.landsaeugetiergehege[0].addTier(Zalana);
 		sayan_zoo.landsaeugetiergehege[0].addTier(Bran);
 		sayan_zoo.landsaeugetiergehege[0].addTier(Arya);
-		
 		sayan_zoo.landsaeugetiergehege[1].addTier(Eddard);
 		sayan_zoo.landsaeugetiergehege[1].addTier(Robb);
 		
 
 		//Schritt 5
+		System.out.print("\nSchritt 5:\n");
 		//Kugelfische 10 -> Kugelfischtank
 		Tier[] kugel_fische = new Tier[10];
 		KugelFisch A = new KugelFisch("A",7,sayan_zoo,sayan_zoo.aquarium[1]);
@@ -253,8 +257,8 @@ public class Main {
 			b[1] = Tick;
 		
 			sayan_zoo.setTiere(b);
-			sayan_zoo.vogelgehege[0].setTiere(b);
-
+			sayan_zoo.vogelgehege[0].setTiere(b);zebras
+zebras
 			
 		/////Outputs
 	

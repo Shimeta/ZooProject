@@ -2,7 +2,7 @@ package zoo.Personen;
 
 import zoo.Zoo;
 import zoo.Gehege.Gehege;
-import zoo.Tier.ITier;
+import zoo.Tier.Tier;		//frag mich ob personal das benutzen müsst also wegen ITier & lebtin
 
 public class Personal extends Personen {
 
