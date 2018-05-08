@@ -1,11 +1,25 @@
 package zoo;
 
+import zoo.Personen.Besucher;
+import zoo.Personen.Personal;
+import zoo.Tier.Adler;
+import zoo.Tier.KugelFisch;
+import zoo.Tier.Loewe;
+import zoo.Tier.Papagei;
+import zoo.Tier.Tier;
+import zoo.Tier.Walhai;
+import zoo.Tier.WasserTier;
+import zoo.Tier.Zebra;
+
 public class Main {
 
 	public static void main(String[] args) {
 		
+		//Aufg 1
 		Zoo sayan_zoo = new Zoo("SayanZoo",null,null);
 		
+		
+		//Aufg 2 Schritt 1
 		//3 Vogelgehege werden hier erzeugt
 		String[] vogel_gehege_names = new String[3];
 		vogel_gehege_names[0] = "Papageiengehege";
@@ -13,7 +27,6 @@ public class Main {
 		vogel_gehege_names[2] = "Pinguingehege";
 		
 		sayan_zoo.setVogelgehege(vogel_gehege_names, sayan_zoo, 3);
-		
 		
 		//3 Landsaeugetiergehege werden hier erzeugt
 		String[] landsaeugetier_gehege_names = new String[3];
@@ -30,6 +43,9 @@ public class Main {
 		
 		sayan_zoo.setAquarium(aqua_gehege_names, sayan_zoo, 2);
 		
+		
+		
+		//Aufg 2 Schritt 2
 		//Papageien werden erzeugt und "Papageiengehege" zugeordnet
 		//die 3 ist nur das alter der Papageien eigentlich unwichtig :)
 		Tier[] papas = new Tier[3];
@@ -44,6 +60,9 @@ public class Main {
 		//die Tiere weden dem Gehege zugeordnet;
 		sayan_zoo.vogelgehege[0].setTiere(papas);
 		
+		
+		
+		//Schritt 3
 		//4 loewn alle in die Wueste
 		Tier[] loewen = new Tier[4];
 		Loewe Tywin = new Loewe("Tywin",7,sayan_zoo,sayan_zoo.landsaeugetiergehege[2]);
@@ -56,9 +75,10 @@ public class Main {
 		loewen[2]=Cersei;
 		loewen[3]=Joffrey;
 		
-		
 		sayan_zoo.landsaeugetiergehege[2].setTiere(loewen);
 		
+		
+		//Schritt 4
 		//5 Zebras Eddard Robb Wald Rest Steppe
 		
 		Tier[] zebras = new Tier[5];
@@ -81,9 +101,9 @@ public class Main {
 		sayan_zoo.landsaeugetiergehege[1].addTier(Eddard);
 		sayan_zoo.landsaeugetiergehege[1].addTier(Robb);
 		
-	
+
+		//Schritt 5
 		//Kugelfische 10 -> Kugelfischtank
-		
 		Tier[] kugel_fische = new Tier[10];
 		KugelFisch A = new KugelFisch("A",7,sayan_zoo,sayan_zoo.aquarium[1]);
 		KugelFisch B = new KugelFisch("B",7,sayan_zoo,sayan_zoo.aquarium[1]);
@@ -95,7 +115,6 @@ public class Main {
 		KugelFisch H = new KugelFisch("H",7,sayan_zoo,sayan_zoo.aquarium[1]);
 		KugelFisch I = new KugelFisch("I",7,sayan_zoo,sayan_zoo.aquarium[1]);
 		KugelFisch J = new KugelFisch("J",7,sayan_zoo,sayan_zoo.aquarium[1]);
-		
 		
 		kugel_fische[0] = A;
 		kugel_fische[1] = B;
@@ -109,6 +128,10 @@ public class Main {
 		kugel_fische[9] = J;
 		
 		sayan_zoo.aquarium[1].setTiere(kugel_fische);
+		
+		
+		
+		//Schritt 6
 		//2 Walhaie
 		Tier[] walhaie = new Tier[2];
 		Walhai Moby = new Walhai("Moby",7,sayan_zoo,sayan_zoo.aquarium[0]);
@@ -119,6 +142,9 @@ public class Main {
 		
 		sayan_zoo.aquarium[0].setTiere(walhaie);
 		
+		
+		
+		//Schritt 7
 		//Adler
 		Tier[] adler = new Tier[2];
 		Adler American = new Adler("American",7,sayan_zoo,sayan_zoo.vogelgehege[1]);
@@ -128,10 +154,12 @@ public class Main {
 		adler[1] = Dream;
 		
 		sayan_zoo.vogelgehege[1].setTiere(adler);
+		
+		
+		
+		//Schritt 8
 		//Personal muss noch gemacht werden Ramsay betreut LandsäugeTiere
 		//Sam ->Wassertiere, Deanerys -> Vögel
-		
-		
 		Personal[] a = new Personal[3];
 		Personal Ramsay = new Personal("Ramsay", 22,sayan_zoo);
 		Personal Sam = new Personal("Sam", 32,sayan_zoo);
@@ -149,16 +177,11 @@ public class Main {
 		for(int l = 0; l<= walhaie.length+kugel_fische.length-1; l++) {
 			if(l< walhaie.length) {
 				wasser_tier_array[l] = walhaie[l];	
-			}
-			
+			} 
 			else {
 				wasser_tier_array[l] = kugel_fische[counter];
 				counter++;
-			}
-			
-			
-			
-			
+			}	
 		}
 		Ramsay.betreut(sayan_zoo.landsaeugetiergehege);
 		Sam.betreut(sayan_zoo.aquarium);
@@ -167,6 +190,9 @@ public class Main {
 		//System.out.println( sayan_zoo.vogelgehege[0].getTiere().length);
 		
 		
+		
+		
+		//Schritt 9
 		//Besucher
 		
 		Besucher Caitlyn = new Besucher("Caitlyn", 22);
@@ -191,8 +217,9 @@ public class Main {
 		
 		
 		
-		
-		//Test
+		//Test 
+		System.out.println("\nTests:\n");
+		Dream.fuettere(Ramsay);
 		/*
 		/////Zoo kreation
 		Zoo sayan_zoo = new Zoo("SayanZoo",null,null);

@@ -1,5 +1,11 @@
 package zoo;
 
+import zoo.Gehege.Aquarium;
+import zoo.Gehege.LandsaeugeTierGehege;
+import zoo.Gehege.Vogelgehege;
+import zoo.Personen.Personal;
+import zoo.Tier.Tier;
+
 public class Zoo {
 	
 	private String name;
