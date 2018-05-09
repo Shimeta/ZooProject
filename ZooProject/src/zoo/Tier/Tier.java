@@ -19,7 +19,6 @@ public abstract class Tier implements ITier{
 		this.setZoo(zoo);
 		this.gehege = gehege;
 		
-		
 	}
 
 ////////Methods from Interface ITier
@@ -48,7 +47,7 @@ public abstract class Tier implements ITier{
 	
 	//sehe es wurd mit addTier geregelt
 	public void lebtIn(/*String Gehege, Gehege neuesGehege, */Gehege gehege) { //Assoziation wenn mich nicht alles täuscht
-		System.out.print(name + " lebt im Gehege " + gehege.getName());
+		System.out.print(this.name + " lebt im Gehege " + gehege.getName());
 	}
 	
 	/*

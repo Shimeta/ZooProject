@@ -11,9 +11,9 @@ public class Zoo {
 	private String name;
 	private static int gehege_count = 0; //zählt ab ob max Gehege erreicht wurden
 	
-	public Vogelgehege[] vogelgehege;
-	public LandsaeugeTierGehege[] landsaeugetiergehege;
-	public Aquarium[] aquarium;
+	private Vogelgehege[] vogelgehege;
+	private LandsaeugeTierGehege[] landsaeugetiergehege;
+	private Aquarium[] getAquarium;
 	
 	private Tier[] tiere;
 	private Personal[] angestellte;
@@ -26,8 +26,8 @@ public class Zoo {
 		
 		this.vogelgehege = new Vogelgehege[10];
 		this.landsaeugetiergehege = new LandsaeugeTierGehege[10];
-		this.aquarium = new Aquarium[10];
-		
+		this.getAquarium = new Aquarium[10];
+		System.out.println("Zoo '" + this.getName() + "' wurde erstellt.");
 		}
 		
 	
@@ -56,6 +56,27 @@ public class Zoo {
 		this.tiere = tiere;
 	}
 	
+	//getGehegeEinträge
+	public Vogelgehege getVogelgehege(int i) {
+		return this.vogelgehege[i];
+	}
+	public LandsaeugeTierGehege getLandsaeugetiergehege(int i) {
+		return this.landsaeugetiergehege[i];
+	}
+	public Aquarium getAquarium(int i) {
+		return this.getAquarium[i];
+	}
+	//getLists
+	public Vogelgehege[] getVogelgehegeList() {
+		return this.vogelgehege;
+	}
+	public LandsaeugeTierGehege[] getLandsaeugetiergehegeList() {
+		return this.landsaeugetiergehege;
+	}
+	public Aquarium[] getAquariumList() {
+		return this.getAquarium;
+	}
+	
 	//Die einzelnen Gehege werden als Komposition erstellt -> also abhängig von Zoo
 	//wenn gehege_count bis 10 hochgezählt hat sagt er am Ende Bescheid
 	
@@ -66,7 +87,7 @@ public class Zoo {
 			if(gehege_count < 9) {
 			
 				this.vogelgehege[i] = new Vogelgehege(name[i],zoo);
-				System.out.println(this.name+" "+"hat jetzt ein neues Vogelgehege mit der Bezeichnung"+" "+name[i]);
+				System.out.println(this.name+" "+"hat jetzt ein neues Vogelgehege mit der Bezeichnung '" + name[i] + "'");
 				gehege_count++;
 				if(gehege_count == 9) {
 					System.out.println(this.name+" "+"hat die max Gehegeanzahl erreicht");
@@ -85,7 +106,7 @@ public void setLandsaeugeTierGehege(String[] name, Zoo zoo, int landsaeuge_geheg
 			if(gehege_count < 9) {
 			
 				this.landsaeugetiergehege[i] = new LandsaeugeTierGehege(name[i],zoo);
-				System.out.println(this.name+" "+"hat jetzt ein neues Landsaeugetiergehege mit der Bezeichnung"+" "+name[i]);
+				System.out.println(this.name+" "+"hat jetzt ein neues Landsaeugetiergehege mit der Bezeichnung '" + name[i] + "'");
 				gehege_count++;
 				if(gehege_count == 9) {
 					System.out.println(this.name+" "+"hat die max Gehegeanzahl erreicht");
@@ -102,8 +123,8 @@ public void setAquarium(String[] name, Zoo zoo, int aqua_gehege_count) {
 		
 		if(gehege_count < 9 ){
 		
-			this.aquarium[i] = new Aquarium(name[i],zoo);
-			System.out.println(this.name+" "+"hat jetzt ein neues Aquarium mit der Bezeichnung"+" "+name[i]);
+			this.getAquarium[i] = new Aquarium(name[i],zoo);
+			System.out.println(this.name+" "+"hat jetzt ein neues Aquarium mit der Bezeichnung '" + name[i]+ "'");
 			gehege_count++;
 		
 			if(gehege_count == 9) {

@@ -11,5 +11,4 @@ public class KugelFisch extends WasserTier{
 		System.out.println("Der Kugelfisch "+name+ " wurde erstellt");
 		
 	}
-
 }

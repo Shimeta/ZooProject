@@ -9,5 +9,4 @@ public abstract class WasserTier extends Tier{
 		super(name, alter, zoo, gehege);
 
 	}
-
 }
