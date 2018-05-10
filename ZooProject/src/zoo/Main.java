@@ -1,19 +1,32 @@
 package zoo;
 
+import zoo.Personen.Besucher;
+import zoo.Personen.Personal;
+import zoo.Tier.Adler;
+import zoo.Tier.KugelFisch;
+import zoo.Tier.Loewe;
+import zoo.Tier.Papagei;
+import zoo.Tier.Tier;
+import zoo.Tier.Walhai;
+import zoo.Tier.WasserTier;
+import zoo.Tier.Zebra;
+
 public class Main {
 
 	public static void main(String[] args) {
 		
-		Zoo sayan_zoo = new Zoo("SayanZoo",null,null);
+		//Aufg 1
+		Zoo sayan_zoo = new Zoo("SayanZoo");
 		
+		
+		//Aufg 2 Schritt 1
 		//3 Vogelgehege werden hier erzeugt
 		String[] vogel_gehege_names = new String[3];
 		vogel_gehege_names[0] = "Papageiengehege";
 		vogel_gehege_names[1] = "Adlergehege";
 		vogel_gehege_names[2] = "Pinguingehege";
 		
-		sayan_zoo.setVogelgehege(vogel_gehege_names, sayan_zoo, 3);
-		
+		sayan_zoo.addGehegeArray(1, vogel_gehege_names, 3, sayan_zoo);
 		
 		//3 Landsaeugetiergehege werden hier erzeugt
 		String[] landsaeugetier_gehege_names = new String[3];
@@ -21,188 +34,161 @@ public class Main {
 		landsaeugetier_gehege_names[1] = "Wald";
 		landsaeugetier_gehege_names[2] = "Wueste";
 		
-		sayan_zoo.setLandsaeugeTierGehege(landsaeugetier_gehege_names, sayan_zoo, 3);
+		
+		sayan_zoo.addGehegeArray(2, landsaeugetier_gehege_names, 3, sayan_zoo);
 		
 		//2 Aquarien werden hier erzeugt
 		String[] aqua_gehege_names = new String[2];
 		aqua_gehege_names[0] = "Walhaibecken";
 		aqua_gehege_names[1] = "Kugelfischtank";
 		
-		sayan_zoo.setAquarium(aqua_gehege_names, sayan_zoo, 2);
-		
-		//Papageien werden erzeugt und "Papageiengehege" zugeordnet
-		//die 3 ist nur das alter der Papageien eigentlich unwichtig :)
+		sayan_zoo.addGehegeArray(3, aqua_gehege_names, 2, sayan_zoo);
+		//getestet ob remove geht
+		//sayan_zoo.removeGehege("Walhaibecken");
+	
+		//Aufg 2 Schritt 2
+		System.out.print("\nSchritt 2:\n");
 		Tier[] papas = new Tier[3];
-		Papagei Tick = new Papagei("Tick",3,sayan_zoo,sayan_zoo.vogelgehege[0]);
-		Papagei Trick = new Papagei("Trick",3,sayan_zoo,sayan_zoo.vogelgehege[0]);
-		Papagei Track = new Papagei("Track",3,sayan_zoo,sayan_zoo.vogelgehege[0]);
+		Papagei Tick = new Papagei("Tick",sayan_zoo);
+		Papagei Trick = new Papagei("Trick",sayan_zoo);
+		Papagei Track = new Papagei("Track",sayan_zoo);
 		
 		papas[0] = Tick;
 		papas[1] = Trick;
 		papas[2] = Track;
 		
-		//die Tiere weden dem Gehege zugeordnet;
-		sayan_zoo.vogelgehege[0].setTiere(papas);
 		
-		//4 loewn alle in die Wueste
-		Tier[] loewen = new Tier[4];
-		Loewe Tywin = new Loewe("Tywin",7,sayan_zoo,sayan_zoo.landsaeugetiergehege[2]);
-		Loewe Jaime = new Loewe("Jaime",7,sayan_zoo,sayan_zoo.landsaeugetiergehege[2]);
-		Loewe Cersei = new Loewe("Cersei",7,sayan_zoo,sayan_zoo.landsaeugetiergehege[2]);
-		Loewe Joffrey = new Loewe("Joffrey",7,sayan_zoo,sayan_zoo.landsaeugetiergehege[2]);
+		sayan_zoo.addTier(papas[1], vogel_gehege_names[0]);
+		sayan_zoo.addTier(papas[2], vogel_gehege_names[0]);
+		sayan_zoo.addTier(papas[0], vogel_gehege_names[0]);
 		
-		loewen[0]=Tywin;
-		loewen[1]=Jaime;
-		loewen[2]=Cersei;
-		loewen[3]=Joffrey;
+		//Schritt 3
+				//4 loewn alle in die Wueste
+				System.out.print("\nSchritt 3:\n");
+				Tier[] loewen = new Tier[4];
+				Loewe Tywin = new Loewe("Tywin",sayan_zoo);
+				Loewe Jaime = new Loewe("Jaime",sayan_zoo);
+				Loewe Cersei = new Loewe("Cersei",sayan_zoo);
+				Loewe Joffrey = new Loewe("Joffrey",sayan_zoo);
+				
+				loewen[0]=Tywin;
+				loewen[1]=Jaime;
+				loewen[2]=Cersei;
+				loewen[3]=Joffrey;
+				
+				for(int p=0; p<loewen.length; p++) {
+					sayan_zoo.addTier(loewen[p], "Wueste");
+				}
+				
+				
+				//Schritt 4
+				System.out.print("\nSchritt 4:\n");
+				//5 Zebras Eddard Robb Wald Rest Steppe
+				
+				Tier[] zebras = new Tier[5];
+				Zebra Zalana = new Zebra("Zalana",sayan_zoo);
+				Zebra Eddard = new Zebra("Eddard",sayan_zoo);
+				Zebra Bran = new Zebra("Bran",sayan_zoo);
+				Zebra Robb = new Zebra("Robb",sayan_zoo);
+				Zebra Arya = new Zebra("Arya",sayan_zoo);
+				
+				
+				zebras[0] = Zalana;
+				zebras[1] = Eddard;
+				zebras[2] = Bran;
+				zebras[3] = Robb;
+				zebras[4] = Arya;
+				
+				//addtier in LansaugeTierGehege unterscheidet jz zw LansÃ¤ugetieren und keinen (Loewe und Zebra ist white-listet)
+				sayan_zoo.addTier(Zalana,landsaeugetier_gehege_names[0]);
+				sayan_zoo.addTier(Bran,landsaeugetier_gehege_names[1]);
+				sayan_zoo.addTier(Arya,landsaeugetier_gehege_names[0]);
+				sayan_zoo.addTier(Eddard,landsaeugetier_gehege_names[1]);
+				sayan_zoo.addTier(Robb,landsaeugetier_gehege_names[0]);
+				
+				
+				//Schritt 5
+				System.out.print("\nSchritt 5:\n");
+				//Kugelfische 10 -> Kugelfischtank
+				Tier[] kugel_fische = new Tier[10];
+				
+				String[] kugel_fische_names = new String[10];
+				
+				for(int fisch = 0; fisch < kugel_fische.length; fisch++) {
+					kugel_fische[fisch] = new KugelFisch("Fisch"+ fisch, sayan_zoo);
+					sayan_zoo.addTier(kugel_fische[fisch], "Kugelfischtank");
+				}
+
+				//Schritt 6
+				//2 Walhaie
+				System.out.print("\nSchritt 6:\n");
+				Tier[] walhaie = new Tier[2];
+				
+				Walhai Moby = new Walhai("Moby",sayan_zoo);
+				Walhai Dick = new Walhai("Dick",sayan_zoo);
+				
+				walhaie[0] = Moby;
+				walhaie[1] = Dick;
+				
+				sayan_zoo.addTier(walhaie[0], aqua_gehege_names[0]);
+				sayan_zoo.addTier(walhaie[1], aqua_gehege_names[0]);
+				
+				//Schritt 7
+				System.out.print("\nSchritt 7:\n");
+				Tier[] adler = new Tier[2];
+				
+				Adler American = new Adler("American",sayan_zoo);
+				Adler Dream = new Adler("Dream",sayan_zoo);
+				
+				adler[0] = American;
+				adler[1] = Dream;
+				
+				sayan_zoo.addTier(adler[0],"Adlergehege");
+				sayan_zoo.addTier(adler[1],"Adlergehege");
+				
+
+				//Schritt 8
+				System.out.print("\nSchritt 8:\n");
+				
+				//betreutes Gehegearray wird direkt über den Konstruktor übergeben
+				Personal[] a = new Personal[3];
+				Personal Ramsay = new Personal("Ramsay",sayan_zoo, sayan_zoo.getGehegeTypeArr(2));
+				Personal Sam = new Personal("Sam",sayan_zoo, sayan_zoo.getGehegeTypeArr(3));
+				Personal Daenerys = new Personal("Daenerys",sayan_zoo, sayan_zoo.getGehegeTypeArr(1));
+						
+				a[0] = Ramsay;
+				a[1] = Sam;
+				a[2] = Daenerys;
 		
+				//Schritt 9
+				//Besucher
+				System.out.print("\nSchritt 9:\n");
+				
+				Besucher Caitlyn = new Besucher("Caitlyn",sayan_zoo.getGehege("Wueste"));
+				Besucher Aerys = new Besucher("Aerys",sayan_zoo.getGehege("Adlergehege"));
+				Besucher Bronn = new Besucher("Bronn",sayan_zoo.getGehege(aqua_gehege_names[1]));
+				Besucher Sansa = new Besucher("Sansa",sayan_zoo.getGehege(aqua_gehege_names[0]));
+				Besucher Willy = new Besucher("Willy",sayan_zoo.getGehege("Steppe"));
+				
+				Willy.besucht(sayan_zoo.getGehege(aqua_gehege_names[1]));
+				
+				Besucher[] besucher_arr = new Besucher[5];
+				besucher_arr[0] = Caitlyn;
+				besucher_arr[1] = Aerys;
+				besucher_arr[2] = Bronn;
+				besucher_arr[3] = Sansa;
+				besucher_arr[4] = Willy;
+				
 		
-		sayan_zoo.landsaeugetiergehege[2].setTiere(loewen);
-		
-		//5 Zebras Eddard Robb Wald Rest Steppe
-		
-		Tier[] zebras = new Tier[5];
-		Zebra Zalana = new Zebra("Zalana",7,sayan_zoo,sayan_zoo.landsaeugetiergehege[0]);
-		Zebra Eddard = new Zebra("Eddard",7,sayan_zoo,sayan_zoo.landsaeugetiergehege[1]);
-		Zebra Bran = new Zebra("Bran",7,sayan_zoo,sayan_zoo.landsaeugetiergehege[0]);
-		Zebra Robb = new Zebra("Robb",7,sayan_zoo,sayan_zoo.landsaeugetiergehege[1]);
-		Zebra Arya = new Zebra("Arya",7,sayan_zoo,sayan_zoo.landsaeugetiergehege[0]);
-		
-		zebras[0] = Zalana;
-		zebras[1] = Eddard;
-		zebras[2] = Bran;
-		zebras[3] = Robb;
-		zebras[4] = Arya;
-		
-		sayan_zoo.landsaeugetiergehege[0].addTier(Zalana);
-		sayan_zoo.landsaeugetiergehege[0].addTier(Bran);
-		sayan_zoo.landsaeugetiergehege[0].addTier(Arya);
-		
-		sayan_zoo.landsaeugetiergehege[1].addTier(Eddard);
-		sayan_zoo.landsaeugetiergehege[1].addTier(Robb);
-		
+				sayan_zoo.outputZustand();
+				
+				//Test 
+						System.out.println("\nTests:\n");
+						Dream.fuettere(Ramsay);
 	
-		//Kugelfische 10 -> Kugelfischtank
-		
-		Tier[] kugel_fische = new Tier[10];
-		KugelFisch A = new KugelFisch("A",7,sayan_zoo,sayan_zoo.aquarium[1]);
-		KugelFisch B = new KugelFisch("B",7,sayan_zoo,sayan_zoo.aquarium[1]);
-		KugelFisch C = new KugelFisch("C",7,sayan_zoo,sayan_zoo.aquarium[1]);
-		KugelFisch D = new KugelFisch("D",7,sayan_zoo,sayan_zoo.aquarium[1]);
-		KugelFisch E = new KugelFisch("E",7,sayan_zoo,sayan_zoo.aquarium[1]);
-		KugelFisch F = new KugelFisch("F",7,sayan_zoo,sayan_zoo.aquarium[1]);
-		KugelFisch G = new KugelFisch("G",7,sayan_zoo,sayan_zoo.aquarium[1]);
-		KugelFisch H = new KugelFisch("H",7,sayan_zoo,sayan_zoo.aquarium[1]);
-		KugelFisch I = new KugelFisch("I",7,sayan_zoo,sayan_zoo.aquarium[1]);
-		KugelFisch J = new KugelFisch("J",7,sayan_zoo,sayan_zoo.aquarium[1]);
-		
-		
-		kugel_fische[0] = A;
-		kugel_fische[1] = B;
-		kugel_fische[2] = C;
-		kugel_fische[3] = D;
-		kugel_fische[4] = E;
-		kugel_fische[5] = F;
-		kugel_fische[6] = G;
-		kugel_fische[7] = H;
-		kugel_fische[8] = I;
-		kugel_fische[9] = J;
-		
-		sayan_zoo.aquarium[1].setTiere(kugel_fische);
-		//2 Walhaie
-		Tier[] walhaie = new Tier[2];
-		Walhai Moby = new Walhai("Moby",7,sayan_zoo,sayan_zoo.aquarium[0]);
-		Walhai Dick = new Walhai("Dick",7,sayan_zoo,sayan_zoo.aquarium[0]);
-		
-		walhaie[0] = Moby;
-		walhaie[1] = Dick;
-		
-		sayan_zoo.aquarium[0].setTiere(walhaie);
-		
-		//Adler
-		Tier[] adler = new Tier[2];
-		Adler American = new Adler("American",7,sayan_zoo,sayan_zoo.vogelgehege[1]);
-		Adler Dream = new Adler("Dream",7,sayan_zoo,sayan_zoo.vogelgehege[1]);
-		
-		adler[0] = American;
-		adler[1] = Dream;
-		
-		sayan_zoo.vogelgehege[1].setTiere(adler);
-		//Personal muss noch gemacht werden Ramsay betreut LandsÃ¤ugeTiere
-		//Sam ->Wassertiere, Deanerys -> VÃ¶gel
-		
-		
-		Personal[] a = new Personal[3];
-		Personal Ramsay = new Personal("Ramsay", 22,sayan_zoo,null);
-		Personal Sam = new Personal("Sam", 32,sayan_zoo,null);
-		Personal Daenerys = new Personal("Daenerys", 25,sayan_zoo,null);
-		a[0] = Ramsay;
-		a[1] = Sam;
-		a[2] = Daenerys;
-		
-		sayan_zoo.setAngestellte(a);
-	
-//		Ramsay.betreut(land_saeuge_array);
-		
-		int counter = 0;
-		Tier[] wasser_tier_array = new WasserTier[walhaie.length+kugel_fische.length];
-		for(int l = 0; l<= walhaie.length+kugel_fische.length-1; l++) {
-			if(l< walhaie.length) {
-				wasser_tier_array[l] = walhaie[l];	
-			}
-			
-			else {
-				wasser_tier_array[l] = kugel_fische[counter];
-				counter++;
-			}
-			
-			
-			
-			
-		}
-		Ramsay.betreut(sayan_zoo.landsaeugetiergehege);
-		Sam.betreut(sayan_zoo.aquarium);
-		Daenerys.betreut(sayan_zoo.vogelgehege);
-		
-		//System.out.println( sayan_zoo.vogelgehege[0].getTiere().length);
-		
-		
-		//Besucher
-		
-		Besucher Caitlyn = new Besucher("Caitlyn", 22,null);
-		Besucher Aerys = new Besucher("Aerys", 22, null);
-		Besucher Bronn = new Besucher("Bronn", 22,null);
-		Besucher Sansa = new Besucher("Sansa", 22,null);
-		Besucher Willy = new Besucher("Willy", 22,null);
-		
-		Besucher[] besucher_arr = new Besucher[5];
-		besucher_arr[0] = Caitlyn;
-		besucher_arr[1] = Aerys;
-		besucher_arr[2] = Bronn;
-		besucher_arr[3] = Sansa;
-		besucher_arr[4] = Willy;
-		
-		//System.out.println(sayan_zoo.aquarium[0].getName());
-		
-		Caitlyn.besucht(sayan_zoo.landsaeugetiergehege[2]);
-		Aerys.besucht(sayan_zoo.vogelgehege[1]);
-		Bronn.besucht(sayan_zoo.aquarium[1]);
-		Sansa.besucht(sayan_zoo.aquarium[0]);
-		Willy.besucht(sayan_zoo.landsaeugetiergehege[1]);
-		Willy.besucht(sayan_zoo.aquarium[1]);
-		
-		
-		
-		
-		sayan_zoo.outputZustand();
-		for(int i=0; i< besucher_arr.length; i++) {
-			
-			besucher_arr[i].outputBesucherZustand();
-			
 		}
 		
 		
-		
-	}
+	
 
 }
