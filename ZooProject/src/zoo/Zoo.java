@@ -9,7 +9,7 @@ import zoo.Tier.Tier;
 public class Zoo {
 	
 	private String name;
-	private static int gehege_count = 0; //zählt ab ob max Gehege erreicht wurden
+	private static int gehege_count_array = 0; //zählt ab ob max Gehege erreicht wurden
 	
 	private Vogelgehege[] vogelgehege;
 	private LandsaeugeTierGehege[] landsaeugetiergehege;
@@ -81,35 +81,59 @@ public class Zoo {
 	//wenn gehege_count bis 10 hochgezählt hat sagt er am Ende Bescheid
 	
 	public void setVogelgehege(String[] name, Zoo zoo, int vogel_gehege_count) {
+
+		//TODO: eigentlich müsste man hier exceptions werfen,
+		//		aber da bin ich noch zu unbelesen und im Grunde ist es nicht gefragt dswg juckt
+
+		if (vogel_gehege_count > 9) {
+			System.err.println("Es können nicht mehr als 10 Gehege angelegt werden");
+			return;
+			
+		} else if (gehege_count_array >= 9 ) {
+			System.err.println("Es können keine Gehege mehr angelegt werden, da die maximale Anzahl erreicht wurde ("
+								+ gehege_count_array + "/" + "10)");
+			return; 
+			
+		} else if ((gehege_count_array+vogel_gehege_count)>9) { //ist überhaupt genug platz noch da?
+			System.err.println("Das Anlegen dieser Anzahl an neuen Gehegen ist unzulässig. Es können allerdings noch " + (10-gehege_count_array) + " Gehege angelegt werden.");
+			return;
+		}
+		//okay: es gilt: gc < 10 && vgc <= 10
 		
 		for(int i=0; i<vogel_gehege_count; i++) {
+			if(gehege_count_array < 9) {
 			
-			if(gehege_count < 9) {
-			
+				gehege_count_array++; // letzter durchlauf = 10
 				this.vogelgehege[i] = new Vogelgehege(name[i],zoo);
-				System.out.println(this.name+" "+"hat jetzt ein neues Vogelgehege mit der Bezeichnung '" + name[i] + "'");
-				gehege_count++;
-				if(gehege_count == 9) {
-					System.out.println(this.name+" "+"hat die max Gehegeanzahl erreicht");
-				break;
-				}
-			}
+				
+				System.out.println(this.name + " hat jetzt ein neues Vogelgehege mit der Bezeichnung '" + name[i] + "'");
 			
+			} else if(gehege_count_array == 9 ) {
+				
+				System.out.println("Maximale Gehegeanzahl wurde erreicht.");
+			
+			} else {
+				
+				System.err.println(this.name + " hat die maximale Gehegeanzahl erreicht (" + (gehege_count_array+1) + "/10)" );
+				System.err.println("Es wurden keine neuen Gehege angelegt");
+				break;
+			}
 		}
-		
 	}
+	
+	
 	
 public void setLandsaeugeTierGehege(String[] name, Zoo zoo, int landsaeuge_gehege_count) {
 		
 		for(int i=0; i<landsaeuge_gehege_count; i++) {
 			
-			if(gehege_count < 9) {
+			if(gehege_count_array < 9) {
 			
 				this.landsaeugetiergehege[i] = new LandsaeugeTierGehege(name[i],zoo);
-				System.out.println(this.name+" "+"hat jetzt ein neues Landsaeugetiergehege mit der Bezeichnung '" + name[i] + "'");
-				gehege_count++;
-				if(gehege_count == 9) {
-					System.out.println(this.name+" "+"hat die max Gehegeanzahl erreicht");
+				System.out.println(this.name+" hat jetzt ein neues Landsaeugetiergehege mit der Bezeichnung '" + name[i] + "'");
+				gehege_count_array++;
+				if(gehege_count_array == 9) {
+					System.out.println(this.name + " hat die max Gehegeanzahl erreicht");
 					break;
 				}
 			}
@@ -121,13 +145,13 @@ public void setAquarium(String[] name, Zoo zoo, int aqua_gehege_count) {
 	
 	for(int i=0; i<aqua_gehege_count; i++) {
 		
-		if(gehege_count < 9 ){
+		if(gehege_count_array < 9 ){
 		
 			this.getAquarium[i] = new Aquarium(name[i],zoo);
 			System.out.println(this.name+" "+"hat jetzt ein neues Aquarium mit der Bezeichnung '" + name[i]+ "'");
-			gehege_count++;
+			gehege_count_array++;
 		
-			if(gehege_count == 9) {
+			if(gehege_count_array == 9) {
 				System.out.println(this.name+" "+"hat die max Gehegeanzahl erreicht");
 				break;
 			}
