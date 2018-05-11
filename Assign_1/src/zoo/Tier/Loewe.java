@@ -11,5 +11,4 @@ public class Loewe extends LandsaeugeTier{
 		System.out.println("Der Loewe "+name+" wurde erstellt");
 		this.Raubtier = true;
 	}
-
 }

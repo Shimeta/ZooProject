@@ -18,7 +18,6 @@ public class Main {
 		//Aufg 1
 		Zoo sayan_zoo = new Zoo("SayanZoo");
 		
-		
 		//Aufg 2 Schritt 1
 		//3 Vogelgehege werden hier erzeugt
 		String[] vogel_gehege_names = new String[3];
@@ -71,6 +70,7 @@ public class Main {
 				Loewe Cersei = new Loewe("Cersei",sayan_zoo);
 				Loewe Joffrey = new Loewe("Joffrey",sayan_zoo);
 				
+				
 				loewen[0]=Tywin;
 				loewen[1]=Jaime;
 				loewen[2]=Cersei;
@@ -114,9 +114,41 @@ public class Main {
 				
 				String[] kugel_fische_names = new String[10];
 				
-				for(int fisch = 0; fisch < kugel_fische.length; fisch++) {
-					kugel_fische[fisch] = new KugelFisch("Fisch"+ fisch, sayan_zoo);
-					sayan_zoo.addTier(kugel_fische[fisch], "Kugelfischtank");
+				KugelFisch Rhein = new KugelFisch("Rhein", sayan_zoo);
+				KugelFisch Weser = new KugelFisch("Weser", sayan_zoo);
+				KugelFisch Elbe = new KugelFisch("Elbe", sayan_zoo);
+				KugelFisch Donau = new KugelFisch("Donau", sayan_zoo);
+				KugelFisch Main = new KugelFisch("Main", sayan_zoo);
+				KugelFisch Saale = new KugelFisch("Saale", sayan_zoo);
+				KugelFisch Spree = new KugelFisch("Spree", sayan_zoo);
+				KugelFisch Ems = new KugelFisch("Ems", sayan_zoo);
+				KugelFisch Neckar = new KugelFisch("Neckar", sayan_zoo);
+				KugelFisch Havel = new KugelFisch("Havel", sayan_zoo);
+				
+				kugel_fische_names[0] = "Rhein";
+				kugel_fische_names[1] = "Weser";
+				kugel_fische_names[2] = "Elbe";
+				kugel_fische_names[3] = "Donau";
+				kugel_fische_names[4] = "Main";
+				kugel_fische_names[5] = "Saale";
+				kugel_fische_names[6] = "Spree";
+				kugel_fische_names[7] = "Ems";
+				kugel_fische_names[8] = "Neckar";
+				kugel_fische_names[9] = "Havel";
+				
+				kugel_fische[0] = Rhein;
+				kugel_fische[1] = Weser;
+				kugel_fische[2] = Elbe;
+				kugel_fische[3] = Donau;
+				kugel_fische[4] = Main;
+				kugel_fische[5] = Saale;
+				kugel_fische[6] = Spree;
+				kugel_fische[7] = Ems;
+				kugel_fische[8] = Neckar;
+				kugel_fische[9] = Havel;
+				
+				for(int i = 0; i < kugel_fische.length; i++){
+					sayan_zoo.addTier(kugel_fische[i], aqua_gehege_names[1]);
 				}
 
 				//Schritt 6
@@ -179,16 +211,28 @@ public class Main {
 				besucher_arr[3] = Sansa;
 				besucher_arr[4] = Willy;
 				
+				
+				//move Loewe Joffrey
+				//Schritt 10
+				System.out.print("\nSchritt 10:\n");
+				sayan_zoo.moveTier(Joffrey, sayan_zoo.getGehege("Wueste"), sayan_zoo.getGehege("Walhaibecken"));
 		
+				//Ordnen Sie Löwe Tywin Wüste zu.
+
+				//Schritt 11
+				System.out.print("\nSchritt 11:\n");
+				
+				sayan_zoo.moveTier(Tywin, sayan_zoo.getGehege("Wueste"), sayan_zoo.getGehege("Wueste"));
+				//12. Besucher Sansa besucht Steppe.
+				System.out.print("\nSchritt 12:\n");
+				Sansa.besucht(sayan_zoo.getGehege("Steppe"));
+				//13. Ordnen Sie Löwin Cersei dem Adlergehege zu
+				System.out.print("\nSchritt 13:\n");
+				sayan_zoo.moveTier(Cersei, sayan_zoo.getGehege("Wueste"), sayan_zoo.getGehege("Adlergehege"));
 				sayan_zoo.outputZustand();
 				
-				//Test 
-						System.out.println("\nTests:\n");
-						Dream.fuettere(Ramsay);
-	
+				//Test
+				System.out.println("\nTests:\n");
+				Dream.fuettere(Ramsay);
 		}
-		
-		
-	
-
 }

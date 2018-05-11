@@ -27,9 +27,14 @@ public class Besucher extends Personen {
 	}
 	
 	public void outputBesucherZustand() {
-		System.out.println(getName()+" befindet sich bei folgendem Gehege: "+ this.gehege.getName());
+		System.out.println(getName()+" befindet sich bei folgendem Gehege: "+ this.gehege.getName()+" sieht ");
+		for(int i = 0; i < this.gehege.getTiere().length; i++) {
+			if(this.gehege.getTiere()[i] != null) {
+				System.out.print(this.gehege.getTiere()[i].getTypName()+" "+this.gehege.getTiere()[i].getName()+", "); 	
+			}
+		}
+		System.out.println();
 	}
-	
 	
 	
 }
