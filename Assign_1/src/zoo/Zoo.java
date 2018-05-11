@@ -200,9 +200,13 @@ public class Zoo {
 		return this.angestellte[temp];
 	}
 	public void addAngestellte(Personal angestellter) {
-	
 		
 		for(int i = 0; i < this.angestellte.length; i++){
+			
+			if(i== this.angestellte.length-1 && this.angestellte[i] != null) {
+				System.out.println(this.getName()+" kann keine weiteren Angestellte anlegen ");
+			}
+			
 			if(this.angestellte[i] == null) {
 				this.angestellte[i] = angestellter;
 				System.out.println(angestellter.getName()+" arbeitet jetzt bei "+ this.getName());
@@ -276,6 +280,11 @@ public class Zoo {
 	
 	public void addTier(Tier tier, String Bezeichnung){
 		for(int q = 0; q < this.tiere.length; q++) {
+			
+			if(q == this.tiere.length-1 && this.tiere[q] != null) {
+				System.out.println(this.getName()+" kann keine weiteren Tiere anlegen ");
+			}
+			
 			if(this.tiere[q] == null ) {
 				this.tiere[q] = tier;
 				break;
@@ -386,6 +395,11 @@ public class Zoo {
 	
 	public void addBesucher(Besucher besucher) {
 		for(int i = 0; i < this.besucher.length; i++) {
+			
+			if(i== this.besucher.length-1 && this.besucher[i] != null) {
+				System.out.println(this.getName()+" kann keine weiteren Besucher anlegen ");
+			}
+			
 			if(this.besucher[i] == null) {
 				this.besucher[i] = besucher;
 				System.out.println("Besucher "+ this.besucher[i].getName()+ " ist in "+ this.name+" angekommen");
