@@ -18,6 +18,7 @@ public class Zoo {
 	private Tier[] tiere;
 	private Personal[] angestellte;
 	
+	
 	public Zoo(String name, Tier[] tiere, Personal[] angestellte) {
 		
 		this.setName(name);
@@ -30,7 +31,6 @@ public class Zoo {
 		System.out.println("Zoo '" + this.getName() + "' wurde erstellt.");
 		}
 		
-	
 	/////name
 	public String getName() {
 		return name;
@@ -105,26 +105,22 @@ public class Zoo {
 	
 	
 	public void setVogelgehege(String[] name, Zoo zoo, int vogel_gehege_count) {
-
 		if(checkiffull(vogel_gehege_count)!=0) {
 			return ; 
 		} else {
 		//okay: es gilt: gc < 10 && vgc <= 10
+			
 			for (int i = 0; i < vogel_gehege_count; i++) {
 				if (gehege_count_array < 9) {
-
 					gehege_count_array++; // letzter durchlauf = 10
 					this.vogelgehege[i] = new Vogelgehege(name[i], zoo);
-
 					System.out.println(	this.name + " hat jetzt ein neues Vogelgehege mit der Bezeichnung '" 
 										+ name[i] + "'");
 
-				} else if (gehege_count_array == 9) {
-					
+				} else if (gehege_count_array == 9) {	
 					System.out.println("Maximale Gehegeanzahl wurde erreicht.");
 					
 				} else {
-
 					System.err.println(this.name + " hat die maximale Gehegeanzahl erreicht ("
 							+ (gehege_count_array + 1) + "/10)");
 					System.err.println("Es wurden keine neuen Gehege angelegt");
@@ -135,15 +131,10 @@ public class Zoo {
 		}
 	}
 	
-	
-	
 	public void setLandsaeugeTierGehege(String[] name, Zoo zoo, int landsaeuge_gehege_count) {
-
 		if (checkiffull(landsaeuge_gehege_count) != 0) {
 			return;
-
 		} else {
-
 			for (int i = 0; i < landsaeuge_gehege_count; i++) {
 				if (gehege_count_array < 9) {
 					gehege_count_array++; // letzter durchlauf = 10
@@ -158,6 +149,7 @@ public class Zoo {
 				}
 			}
 		}
+		
 	}
 
 	public void setAquarium(String[] name, Zoo zoo, int aqua_gehege_count) {
@@ -183,5 +175,100 @@ public class Zoo {
 	}
 	
 	
-	
+	public void outputZustand() {		
+
+		//Platzhalter
+		System.out.println();
+		
+		//Zustand des Vogelgeheges
+		for(int p = 0; p< vogelgehege.length; p++) {
+			if(vogelgehege[p] != null) {
+				System.out.print(this.name+" hat das Gehege "+ this.vogelgehege[p].getName());
+
+				System.out.print(" darin leben ");
+				//Jedes Tier im Vogelgehege wird durchgegangen ... allerdings wird zuerst geschaut
+				//ob da überhaupt Tiere drinnen sind
+				for(int k = 0; k<vogelgehege[p].getTiere().length; k++) {
+					if(vogelgehege[p].getTiere()[k] != null) {
+						System.out.print( vogelgehege[p].getTiere()[k].getName()+", ");
+					}
+				}
+				//am ende eines Geheges wird untendrunter weitergeschrieben
+				System.out.println();
+			}
+		}
+		
+		// Zustand des LandsaeugeTierGeheges
+		for (int p = 0; p < landsaeugetiergehege.length; p++) {
+			if (landsaeugetiergehege[p] != null) {
+
+				System.out.print(this.name + " hat das Gehege " + this.landsaeugetiergehege[p].getName());
+
+				System.out.print(" darin leben ");
+
+				// Jedes Tier im Vogelgehege wird durchgegangen ... allerdings wird zuerst
+				// geschaut
+				// ob da überhaupt Tiere drinnen sind
+
+				for (int k = 0; k < landsaeugetiergehege[p].getTiere().length; k++) {
+
+					if (landsaeugetiergehege[p].getTiere()[k] != null) {
+
+						System.out.print(landsaeugetiergehege[p].getTiere()[k].getName() + ", ");
+					}
+
+				}
+
+				// am ende eines Geheges wird untendrunter weitergeschrieben
+				System.out.println(" ");
+
+			}
+		}
+
+		// Zustand des Aquariums
+		for (int p = 0; p <  getAquarium.length; p++) {
+			if (getAquarium[p] != null) {
+
+				System.out.print(this.name + " hat das Gehege " + this.getAquarium[p].getName());
+
+				System.out.print(" darin leben ");
+
+				// Jedes Tier im Vogelgehege wird durchgegangen ... allerdings wird zuerst
+				// geschaut
+				// ob da überhaupt Tiere drinnen sind
+
+				for (int k = 0; k < getAquarium[p].getTiere().length; k++) {
+
+					if (getAquarium[p].getTiere()[k] != null) {
+
+						System.out.print(getAquarium[p].getTiere()[k].getName() + ", ");
+					}
+
+				}
+
+				// am ende eines Geheges wird untendrunter weitergeschrieben
+				System.out.println(" ");
+
+			}
+		}
+
+		// angestellte Zustand und wo sich welches Personaal wo befindet
+
+		for (int arb = 0; arb < angestellte.length; arb++) {
+
+			System.out.println(this.name + " hat den Angestellten " + angestellte[arb].getName()
+					+ " ,welcher sich um folgende Gehegen kümmert: ");
+			for (int g = 0; g < angestellte[arb].getGehege().length; g++) {
+				if (angestellte[arb].getGehege()[g] != null) {
+
+					System.out.print(angestellte[arb].getGehege()[g].getName() + ", ");
+
+				}
+
+			}
+			System.out.println(" ");
+		}
+		// Besucher wo die sich aufhalten
+		System.out.println();
+	}
 }

@@ -27,10 +27,21 @@ public class Aquarium extends Gehege{
 	}
 	
 	public void addTier(Tier tier) {
-		//ein einzelnes Tier wird hinzugefügt zum Gehege
-		//muss auch noch eingeschränkt werden
 		
-		this.tiere[tier_array_index+1] = tier;
+		//setzt das Tier in den Array ein nur einmal 
+		
+	boolean anima_inside = false;
+		
+		for(int l= 0; l< this.tiere.length; l++) {
+			
+			if(this.tiere[l] == null && anima_inside == false) {
+				
+				this.tiere[l] = tier;
+				
+				anima_inside = true;
+			}
+		}
+
 		System.out.println(tier.getName()+ " wurde dem "+ this.getName()+" zugeordnet");
 		
 		

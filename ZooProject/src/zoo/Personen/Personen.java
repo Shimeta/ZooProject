@@ -8,16 +8,14 @@ public abstract class Personen {
 	
 	private String name;
 	private int alter;
-	private Gehege gehege;	
 	
+	//UML 1 Typ Gehege in Personen mit private Sichtbarkeit (siehe besucht)
+	private Gehege[] gehege;
 	
-	public Personen(String name,int alter) {
+	public Personen(String name,int alter, Gehege[] gehege) {
 	this.setName(name);
 	this.alter = alter;
-	
 	}
-
-
 	
 	///////name
 	public String getName() {
@@ -40,14 +38,19 @@ public abstract class Personen {
 	}
 
 
-	public Gehege getGehege() {
+
+	public Gehege[] getGehege() {
 		return gehege;
 	}
 
 
-	public void setGehege(Gehege gehege) {
+
+	public void setGehege(Gehege[] gehege) {
 		this.gehege = gehege;
 	}
+
+
+
 	
 	
 	

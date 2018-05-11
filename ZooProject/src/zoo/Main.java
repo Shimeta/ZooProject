@@ -173,9 +173,9 @@ public class Main {
 		//Personal muss noch gemacht werden Ramsay betreut LandsäugeTiere
 		//Sam ->Wassertiere, Deanerys -> Vögel
 		Personal[] a = new Personal[3];
-		Personal Ramsay = new Personal("Ramsay", 22,sayan_zoo);
-		Personal Sam = new Personal("Sam", 32,sayan_zoo);
-		Personal Daenerys = new Personal("Daenerys", 25,sayan_zoo);
+		Personal Ramsay = new Personal("Ramsay", 22,sayan_zoo,null);
+		Personal Sam = new Personal("Sam", 32,sayan_zoo,null);
+		Personal Daenerys = new Personal("Daenerys", 25,sayan_zoo,null);
 		a[0] = Ramsay;
 		a[1] = Sam;
 		a[2] = Daenerys;
@@ -189,8 +189,7 @@ public class Main {
 		for(int l = 0; l<= walhaie.length+kugel_fische.length-1; l++) {
 			if(l< walhaie.length) {
 				wasser_tier_array[l] = walhaie[l];	
-			} 
-			else {
+			} else {
 				wasser_tier_array[l] = kugel_fische[counter];
 				counter++;
 			}	
@@ -208,12 +207,18 @@ public class Main {
 		System.out.println("\nSchritt 9\n");
 		//Besucher
 		
-		Besucher Caitlyn = new Besucher("Caitlyn", 22);
-		Besucher Aerys = new Besucher("Aerys", 22);
-		Besucher Bronn = new Besucher("Bronn", 22);
-		Besucher Sansa = new Besucher("Sansa", 22);
-		Besucher Willy = new Besucher("Willy", 22);
+		Besucher Caitlyn = new Besucher("Caitlyn", 22,null);
+		Besucher Aerys = new Besucher("Aerys", 22, null);
+		Besucher Bronn = new Besucher("Bronn", 22,null);
+		Besucher Sansa = new Besucher("Sansa", 22,null);
+		Besucher Willy = new Besucher("Willy", 22,null);
 		
+		Besucher[] besucher_arr = new Besucher[5];
+		besucher_arr[0] = Caitlyn;
+		besucher_arr[1] = Aerys;
+		besucher_arr[2] = Bronn;
+		besucher_arr[3] = Sansa;
+		besucher_arr[4] = Willy;
 		
 		//System.out.println(sayan_zoo.aquarium[0].getName());
 		
@@ -227,10 +232,8 @@ public class Main {
 		/*//Schritt 10
 		System.out.println("\nSchritt 10\n");
 		
-		
 		//Schritt 11
 		System.out.println("\nSchritt 11\n");
-		
 		
 		//Schritt 12
 		System.out.println("\nSchritt 12\n");
@@ -261,32 +264,19 @@ public class Main {
 			
 			Personal[] a = new Personal[3];
 			
-			a[0] = Seymor;
-			a[1] = Biggs;
-			a[2] = Wedge;
+			besucher_arr[i].outputBesucherZustand();
 			
-			sayan_zoo.setAngestellte(a);
-	
-		/////Tier kreation
-			Adler Squardo = new Adler("Squardo", 3, sayan_zoo, sayan_zoo.vogelgehege);
-			Adler Tick = new Adler("Tick", 3,sayan_zoo,sayan_zoo.vogelgehege);
-			
-			Tier[] b = new Tier[3];
-			b[0] = Squardo;
-			b[1] = Tick;
-		
+		}
 			sayan_zoo.setTiere(b);
 			sayan_zoo.vogelgehege[0].setTiere(b);zebras
 zebras
-			
-		/////Outputs
-	
-		
-		//System.out.println(sayan_zoo.getName()+" "+sayan_zoo.getAngestellte()[2].getName());
-		System.out.println(sayan_zoo.vogelgehege[0].getTiere()[1].getName()+" "+sayan_zoo.getTiere()[0].getName());
-	
-	
-		*/
+		/////Outputs		
 	}
 
+}*/
+	
+	
+	
+	}
 }
+	
