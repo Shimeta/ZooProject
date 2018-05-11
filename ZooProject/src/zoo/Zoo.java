@@ -9,7 +9,9 @@ import zoo.Tier.Tier;
 public class Zoo {
 	
 	private String name;
+	static boolean  allowed = true;	//schaut ob im Gehege das Tier reinplatziert werden darf oder nicht
 	private static int gehege_count_array = 0; //zählt ab ob max Gehege erreicht wurden
+	
 	
 	private Vogelgehege[] vogelgehege;
 	private LandsaeugeTierGehege[] landsaeugetiergehege;
@@ -17,19 +19,22 @@ public class Zoo {
 	
 	private Tier[] tiere;
 	private Personal[] angestellte;
+	private int MAXIMALEANZAHLANANGESTELLTEN;
+	
+	static boolean freeSpaceBesucherArray = true;
 	
 	
 	public Zoo(String name, Tier[] tiere, Personal[] angestellte) {
 		
 		this.setName(name);
-		this.setTiere(tiere);
+/*		this.setTiere(tiere);
 		this.setAngestellte(angestellte);
-		
+*/		
 		this.vogelgehege = new Vogelgehege[10];
 		this.landsaeugetiergehege = new LandsaeugeTierGehege[10];
 		this.getAquarium = new Aquarium[10];
 		System.out.println("Zoo '" + this.getName() + "' wurde erstellt.");
-		}
+	}
 		
 	/////name
 	public String getName() {
@@ -49,13 +54,14 @@ public class Zoo {
 	}
 	
 	////////Tier zuordnen
+	/*
 	public Tier[] getTiere() {
 		return tiere;
 	}
 	public void setTiere(Tier[] tiere) {
 		this.tiere = tiere;
 	}
-	
+	*/
 	//getGehegeEinträge
 	public Vogelgehege getVogelgehege(int i) {
 		return this.vogelgehege[i];
@@ -130,7 +136,6 @@ public class Zoo {
 			}
 		}
 	}
-	
 	public void setLandsaeugeTierGehege(String[] name, Zoo zoo, int landsaeuge_gehege_count) {
 		if (checkiffull(landsaeuge_gehege_count) != 0) {
 			return;
@@ -151,7 +156,6 @@ public class Zoo {
 		}
 		
 	}
-
 	public void setAquarium(String[] name, Zoo zoo, int aqua_gehege_count) {
 
 		if (checkiffull(aqua_gehege_count) != 0) {
@@ -173,8 +177,7 @@ public class Zoo {
 			}
 		}
 	}
-	
-	
+
 	public void outputZustand() {		
 
 		//Platzhalter
@@ -271,4 +274,18 @@ public class Zoo {
 		// Besucher wo die sich aufhalten
 		System.out.println();
 	}
+	public void addAngestellte(Personal angestellter) {	
+		for(int i = 0; i < this.angestellte.length; i++){
+			if((i == this.angestellte.length-1) && (this.angestellte[i] != null)) {
+				// Fall: Am Ende der Liste ist ein Eintrag (vorher hochgezählt) ~> Liste voll
+				System.out.println(this.getName()+" kann keine weiteren Angestellte anlegen ");
+				return ;
+			} else if(this.angestellte[i] == null) {
+				this.angestellte[i] = angestellter;
+				System.out.println(angestellter.getName()+" arbeitet jetzt bei "+ this.getName());
+				break;
+			}
+		}
+	}
+
 }

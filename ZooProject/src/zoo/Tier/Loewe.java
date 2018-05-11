@@ -1,14 +1,15 @@
 package zoo.Tier;
 
 import zoo.Zoo;
-import zoo.Gehege.Gehege;
+//import zoo.Gehege.Gehege;
 
 public class Loewe extends LandsaeugeTier{
 
-	public Loewe(String name, int alter, Zoo zoo, Gehege gehege) {
-		super(name, alter, zoo, gehege);
+	public Loewe(String name, Zoo zoo) {
+		super(name, zoo);
 		this.TypName="Loewe";
 		System.out.println("Der Loewe "+name+" wurde erstellt");
+		this.Raubtier = true;
 	}
 
 }

@@ -49,13 +49,13 @@ public class Main {
 		
 		
 		//Aufg 2 Schritt 2
-		System.out.println("\nAufg 2 Schritt 2\n");
+		/*System.out.println("\nAufg 2 Schritt 2\n");
 		//Papageien werden erzeugt und "Papageiengehege" zugeordnet
 		//die 3 ist nur das alter der Papageien eigentlich unwichtig :)
 		Tier[] papas = new Tier[3];
-		Papagei Tick = new Papagei("Tick",3,sayan_zoo,sayan_zoo.getVogelgehege(0));
-		Papagei Trick = new Papagei("Trick",3,sayan_zoo,sayan_zoo.getVogelgehege(0));
-		Papagei Track = new Papagei("Track",3,sayan_zoo,sayan_zoo.getVogelgehege(0));
+		Papagei Tick = new Papagei("Tick",sayan_zoo);
+		Papagei Trick = new Papagei("Trick",sayan_zoo);
+		Papagei Track = new Papagei("Track",sayan_zoo);
 		
 		papas[0] = Tick;
 		papas[1] = Trick;
@@ -63,9 +63,26 @@ public class Main {
 		
 		//die Tiere weden dem Gehege zugeordnet;
 		sayan_zoo.getVogelgehege(0).setTiere(papas);
+		*/
+		//Aufg 2 Schritt 2
+		System.out.print("\nSchritt 2:\n");
+		Tier[] papas = new Tier[3];
+		Papagei Tick = new Papagei("Tick",sayan_zoo);
+		Papagei Trick = new Papagei("Trick",sayan_zoo);
+		Papagei Track = new Papagei("Track",sayan_zoo);
 		
+		papas[0] = Tick;
+		papas[1] = Trick;
+		papas[2] = Track;
 		
+//TODO Störenfried addTier gibt es noch nicht in Zoo und ich bin mir bzgl Rollen noch im Unklaren
+		// Ich kann erstmal es mit new machen und später schauen ob es noch anders geht
+/*		sayan_zoo.addTier(papas[1], vogel_gehege_names[0]);
+		sayan_zoo.addTier(papas[2], vogel_gehege_names[0]);
+		sayan_zoo.addTier(papas[0], vogel_gehege_names[0]);
+*/		
 		
+		/*
 		//Schritt 3
 		System.out.println("\nSchritt 3\n");
 		//4 loewn alle in die Wueste
@@ -103,7 +120,7 @@ public class Main {
 		Nicht verwendet 
 		*/
 		//addtier in LansaugeTierGehege unterscheidet jz zw Lansäugetieren und keinen (Loewe und Zebra ist white-listet)
-		sayan_zoo.getLandsaeugetiergehege(0).addTier(Zalana);
+		/*sayan_zoo.getLandsaeugetiergehege(0).addTier(Zalana);
 		sayan_zoo.getLandsaeugetiergehege(0).addTier(Bran);
 		sayan_zoo.getLandsaeugetiergehege(0).addTier(Arya);
 		sayan_zoo.getLandsaeugetiergehege(1).addTier(Eddard);
@@ -229,7 +246,7 @@ public class Main {
 		Willy.besucht(sayan_zoo.getLandsaeugetiergehege(1));
 		Willy.besucht(sayan_zoo.getAquarium(1));
 		
-		/*//Schritt 10
+		/*Schritt 10
 		System.out.println("\nSchritt 10\n");
 		
 		//Schritt 11
@@ -243,7 +260,7 @@ public class Main {
 		System.out.println("\nSchritt 13\n");
 		*/
 		
-		//Test 
+		/*Test 
 		System.out.println("\nTests:\n");
 		Dream.fuettere(Ramsay);
 		/*

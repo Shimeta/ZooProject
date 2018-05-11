@@ -24,5 +24,5 @@ public interface ITier {
 	
 	public void fuettere(Personal personal); //implemented. Gibt aus, dass tier von personal gefüttert wird.
 	public void lebtIn(/*String gehege, Gehege neuesGehege, */Gehege gehege); //implemented
-		
+	public int getGehege_typ();
 }
