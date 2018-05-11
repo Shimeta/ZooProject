@@ -7,55 +7,32 @@ import zoo.Gehege.Gehege;
 public abstract class Personen {
 	
 	private String name;
-	private int alter;
+	private Gehege[] gehege; //TODO: Personen betreuen 	ist hier nicht erwünscht
+							 // diese variable ist für den Ort der Person da (UML)
 	
-	//UML 1 Typ Gehege in Personen mit private Sichtbarkeit (siehe besucht)
-	private Gehege[] gehege;
 	
-	public Personen(String name,int alter, Gehege[] gehege) {
-	this.setName(name);
-	this.alter = alter;
+	public Personen(String name, Gehege[] gehege) {
+		this.setName(name);
 	}
-	
+
+
 	///////name
 	public String getName() {
 		return name;
 	}
 
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
-
-	public int getAlter() {
-		return alter;
-	}
-
-
-	public void setAlter(int alter) {
-		this.alter = alter;
-	}
-
-
 
 	public Gehege[] getGehege() {
 		return gehege;
 	}
 
-
-
 	public void setGehege(Gehege[] gehege) {
 		this.gehege = gehege;
 	}
-
-
-
 	
 	
 	
-	
-	
-	
-
 }

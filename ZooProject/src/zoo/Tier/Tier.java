@@ -7,17 +7,18 @@ import zoo.Gehege.Gehege;
 public abstract class Tier implements ITier{
 
 	private String name;
-	private int alter;
+	protected int Gehege_typ;
 	private Zoo zoo;
 	private Gehege gehege;
+	protected boolean Raubtier;
 	protected String TypName;
 	
 	
-	public Tier(String name, int alter, Zoo zoo, Gehege gehege) {
+	public Tier(String name, Zoo zoo) {
 		this.setName(name);
-		this.alter = alter;
+		this.Gehege_typ = Gehege_typ; //no effect
 		this.setZoo(zoo);
-		this.gehege = gehege;
+		this.Raubtier = false;
 		
 	}
 
@@ -50,23 +51,22 @@ public abstract class Tier implements ITier{
 		System.out.print(this.name + " lebt im Gehege " + gehege.getName());
 	}
 	
-	/*
-	 * viele methoden die hier aufgerufen werden müssen noch implementiert werden bzw
-	 * von meinem Code übernommen, werden allerdings will ich die differenzen im git 
-	 * erstmal klein haben, weil es halt auch einfacher zu reviewen ist dswg ist hier
-	 * alles erstmal ein Kommentar
-	 * nicht gefragt
-		if(neuesGehege.isfull(zuu)==false) {
-			this.gehege=Gehege;
-			if(altesGehege.getBewohneranzahl<=0){
-				// do nothing 
-			} else {
-				altesGehege.erniedrige_Bewohneranzahl();
-				altesGehege.removeBewohner(this);
-			}
-			
-			neuesGehege.erhöhe_Bewohneranzahl();
-			altesGehege.removeBewohner(this);
-			neuesGehege.addBewohner(this);
-	*/
+	public int getGehege_typ() {
+		return this.Gehege_typ;
+	}
+	
+	public boolean isRaubtier() {
+		return this.Raubtier;
+	}
+
+	public Gehege getGehege() { 
+		return gehege;
+	}
+
+	public void setGehege(Gehege gehege) { //für Zuordnung
+		this.gehege = gehege;
+	}
+	
+	
+	
 }
