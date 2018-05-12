@@ -11,6 +11,7 @@ public abstract class Personen {
 	this.setName(name);
 	
 	}
+	
 
 	public String getName() {
 		return name;
