@@ -11,6 +11,8 @@ public class Aquarium extends Gehege{
 	}
 
 	public void setTiere(Tier[] tiere) {
+		//Array von Tieren werden hier Ã¼bergegeben
+		//Hier muss noch eingeschrÃ¤nkt werden ... also dass z.B nur VÃ¶gel dem Vogelgehege zugeordnet werden dÃ¼rfen
 		
 		this.tiere = tiere;
 		this.tier_array_index = tiere.length;
@@ -33,9 +35,5 @@ public class Aquarium extends Gehege{
 		
 		
 	}
-
-	
-	
-	
 	
 }
