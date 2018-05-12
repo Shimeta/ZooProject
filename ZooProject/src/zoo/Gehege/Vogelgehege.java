@@ -25,9 +25,6 @@ public class Vogelgehege extends Gehege {
 	}
 	
 	public void addTier(Tier tier) {
-		//ein einzelnes Tier wird hinzugefÃ¼gt zum Gehege
-		//muss auch noch eingeschrÃ¤nkt werden
-		
 		int tiere_array_counter = 0;
 		for(int l= 0; l< this.tiere.length; l++) {
 			if(this.tiere[l] != null) {	
@@ -41,6 +38,3 @@ public class Vogelgehege extends Gehege {
 		
 	}
 	}
-
-
-
