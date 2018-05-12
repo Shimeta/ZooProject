@@ -50,10 +50,9 @@ public class Personal extends Personen {
 			if(gehege[k] != null && gehege[k].getTiere()[i] != null) {
 				System.out.println(getName()+" betreut "+ gehege[k].getTiere()[i].getName());
 			}
-			
 		}
-		
 	}
+		
 		
 	}
 	
@@ -75,5 +74,10 @@ public class Personal extends Personen {
 		
 	return gehege;
 	}
+
+
+
+
+	
 	
 }
