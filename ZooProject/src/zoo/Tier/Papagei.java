@@ -1,7 +1,6 @@
 package zoo.Tier;
 import zoo.Zoo;
 
-
 public class Papagei extends Vogel{
 	public Papagei(String name, Zoo zoo) {
 		super(name, zoo);
