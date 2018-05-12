@@ -16,11 +16,11 @@ public class Besucher extends Personen {
 		}
 	}
 
-	public Gehege ggetGehege() {
+	public Gehege getGehege() {
 			return gehege;
 	}
 	
-	public void ssetGeheeg(Gehege gehege) {
+	public void setGeheeg(Gehege gehege) {
 		if(gehege == null) {
 	System.out.print("besuchtes Gehege "+"von "+this.getName()+" existiert nicht mehr "+ this.getName()+" besucht jetzt folgendes Gehege: ");
 			for(int i = 0; i < this.gehege.getOwner().getFullGehege().length; i++) {
