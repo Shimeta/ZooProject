@@ -163,8 +163,8 @@ public class Zoo {
 		
 		for(int k = 0; k < this.besucher.length; k++) {
 			if(this.besucher[k] != null) {
-				if(this.besucher[k].ggetGehege().getName() == Bezeichnung) {
-					this.besucher[k].ssetGeheeg(null);
+				if(this.besucher[k].getGehege().getName() == Bezeichnung) {
+					this.besucher[k].setGeheeg(null);
 					break;
 				}
 			}
