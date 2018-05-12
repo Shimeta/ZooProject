@@ -236,7 +236,6 @@ public class Zoo {
 		this.name = name;
 	}
 		
-	//////Personal
 	public Personal getAngestellte(String Name) {
 		int temp = 0;	//temp speichert den Index wo sich das gewuenschte Gehege befindet
 		for(int i = 0; i < this.angestellte.length; i++) {
@@ -261,7 +260,6 @@ public class Zoo {
 		}
 	}
 	
-	////////Tier zuordnen
 	public Tier getTier(String Name) {
 		
 		int temp = 0;	//temp speichert den Index wo sich das gewuenschte Gehege befindet
@@ -274,8 +272,6 @@ public class Zoo {
 		}
 		return this.tiere[temp];
 	}
-	
-	
 	
 	public void addTier(Tier tier, String Bezeichnung){
 		for(int q = 0; q < this.tiere.length; q++) {
@@ -343,12 +339,6 @@ public class Zoo {
 		}
 		
 	}
-	
-
-	
-
-
-	
 	
 	public Besucher getBesucher(String Name) {
 		
