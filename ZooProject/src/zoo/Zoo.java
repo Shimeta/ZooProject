@@ -6,6 +6,7 @@ import zoo.Gehege.LandsaeugeTierGehege;
 import zoo.Gehege.Vogelgehege;
 import zoo.Personen.Besucher;
 import zoo.Personen.Personal;
+import zoo.Tier.Loewe;
 import zoo.Tier.Tier;
 
 public class Zoo {
@@ -145,8 +146,6 @@ public class Zoo {
 			}
 		}
 		
-		
-		
 		if(checkIfAnimalInside == true) {
 			System.out.println("In diesem Gehege leben Tiere...Gehege kann deshalb nicht entfernt werden");
 		}
@@ -185,6 +184,55 @@ public class Zoo {
 			}
 		}
 		}
+	}
+	
+	
+	public void moveTier(Tier tier, Gehege oldGehege, Gehege newGehege) {
+
+		if(oldGehege == newGehege) {
+			System.out.println(tier.getName()+" ist bereits in "+ newGehege.getName());
+		}
+		else {
+			boolean isInsideOldGehege = false;
+			for(int p = 0; p < oldGehege.getTiere().length; p++) {
+				if(oldGehege.getTiere()[p] != null) {
+					if(oldGehege.getTiere()[p].getName() == tier.getName()) {
+						isInsideOldGehege = true;
+					}
+				}
+			}
+			if(isInsideOldGehege == true) {
+				addTier(tier, newGehege.getName());
+			}
+			else {
+				System.out.println(tier.getName()+" existiert nicht in "+ oldGehege.getName());
+				return;
+			}
+		
+		boolean isInsideNewGehege = false;
+		for(int k = 0; k < newGehege.getTiere().length; k++) {
+			if(newGehege.getTiere()[k] != null) {
+				if(newGehege.getTiere()[k].getName() == tier.getName()) {
+					isInsideNewGehege = true;
+				}
+			}
+		}
+		if(isInsideNewGehege == false) {
+			System.out.println(tier.getTypName()+" "+tier.getName()+" bleibt erstmal in "+ oldGehege.getName());
+		}
+		else if(isInsideNewGehege == true) {
+			if(oldGehege != null) {
+				for(int i = 0; i < oldGehege.getTiere().length; i++) {
+					if(oldGehege.getTiere()[i] != null) {
+						if(tier.getName() == oldGehege.getTiere()[i].getName()) {
+							oldGehege.getTiere()[i] = null;
+						}
+					}
+				}
+			}
+		}
+		}
+		
 	}
 	
 	public Gehege getGehege(String Bezeichnung) {
@@ -236,6 +284,7 @@ public class Zoo {
 		this.name = name;
 	}
 		
+	//////Personal
 	public Personal getAngestellte(String Name) {
 		int temp = 0;	//temp speichert den Index wo sich das gewuenschte Gehege befindet
 		for(int i = 0; i < this.angestellte.length; i++) {
@@ -260,6 +309,7 @@ public class Zoo {
 		}
 	}
 	
+	////////Tier zuordnen
 	public Tier getTier(String Name) {
 		
 		int temp = 0;	//temp speichert den Index wo sich das gewuenschte Gehege befindet
@@ -272,6 +322,8 @@ public class Zoo {
 		}
 		return this.tiere[temp];
 	}
+	
+	
 	
 	public void addTier(Tier tier, String Bezeichnung){
 		for(int q = 0; q < this.tiere.length; q++) {
@@ -339,6 +391,7 @@ public class Zoo {
 		}
 		
 	}
+	
 	
 	public Besucher getBesucher(String Name) {
 		
