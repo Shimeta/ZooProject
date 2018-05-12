@@ -1,7 +1,5 @@
 package zoo.Tier;
-
 import zoo.Zoo;
-//import zoo.Gehege.Gehege;
 
 public abstract class WasserTier extends Tier{
 
