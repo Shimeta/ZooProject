@@ -16,8 +16,6 @@ public abstract class Gehege {
 		this.owner = owner;
 	}
 
-
-	
 	public String getName() {
 		return name;
 	}
@@ -50,5 +48,3 @@ public abstract class Gehege {
 	}
 	
 }
-
-
