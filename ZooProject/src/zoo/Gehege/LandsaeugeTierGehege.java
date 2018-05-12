@@ -24,8 +24,13 @@ public class LandsaeugeTierGehege extends Gehege {
 	}
 	
 	public void addTier(Tier tier) {
-		
+		//ein einzelnes Tier wird hinzugefÃ¼gt zum Gehege
+		//muss auch noch eingeschrÃ¤nkt werden ~> isses nun o/
+		//ich wÃ¼rds so machen
 		if((tier.getTypName()=="Loewe") || (tier.getTypName()=="Zebra")) {
+			//kann zugeordnet werden
+			//referenz: System.out.print("\n " + tier.getTypName());
+			
 			int tiere_array_counter = 0;
 			for(int l= 0; l< this.tiere.length; l++) {
 				if(this.tiere[l] != null) {	
