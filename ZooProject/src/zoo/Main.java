@@ -31,7 +31,7 @@ public class Main {
 		sayan_zoo.addGehege(1, vogel_gehege_names[0], sayan_zoo);
 		sayan_zoo.addGehege(1, vogel_gehege_names[1], sayan_zoo);
 		sayan_zoo.addGehege(1, vogel_gehege_names[2], sayan_zoo);
-		
+
 		//3 Landsaeugetiergehege werden hier erzeugt
 		String[] landsaeugetier_gehege_names = new String[3];
 		landsaeugetier_gehege_names[0] = "Steppe";
@@ -49,9 +49,7 @@ public class Main {
 		aqua_gehege_names[1] = "Kugelfischtank";
 
 		sayan_zoo.addGehege(3, aqua_gehege_names[0], sayan_zoo);
-		sayan_zoo.addGehege(3, aqua_gehege_names[1], sayan_zoo);
-
-		
+		sayan_zoo.addGehege(3, aqua_gehege_names[1], sayan_zoo);		
 		
 		
 		//Aufg 2 Schritt 2
@@ -108,9 +106,10 @@ public class Main {
 		zebras[2] = Bran;
 		zebras[3] = Robb;
 		zebras[4] = Arya;
-		//Nicht verwendet 
+		//Nicht verwendet ich lass es mal drinen kann aber raus
 		
 		//addtier in LansaugeTierGehege unterscheidet jz zw Lansäugetieren und keinen (Loewe und Zebra ist white-listet)
+
 
 		sayan_zoo.addTier(Zalana,landsaeugetier_gehege_names[0]);
 		sayan_zoo.addTier(Bran,landsaeugetier_gehege_names[1]);
@@ -162,7 +161,7 @@ public class Main {
 			sayan_zoo.addTier(kugel_fische[i], aqua_gehege_names[1]);
 		}
 		
-		
+
 		//Schritt 6
 		System.out.println("\nSchritt 6\n");
 		//2 Walhaie
@@ -260,7 +259,6 @@ public class Main {
 		
 		
 		sayan_zoo.outputZustand();
-		
-	}
+  	}
 }
 	

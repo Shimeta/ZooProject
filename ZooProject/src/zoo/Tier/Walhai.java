@@ -1,5 +1,7 @@
 package zoo.Tier;
+
 import zoo.Zoo;
+//import zoo.Gehege.Gehege;
 
 public class Walhai extends WasserTier{
 
@@ -8,4 +10,5 @@ public class Walhai extends WasserTier{
 		this.TypName="Walhai";
 		System.out.println("Der Walhai " + name +" wurde erstellt");
 	}
+
 }

@@ -12,15 +12,17 @@ public abstract class Tier implements ITier{
 	private Gehege gehege;
 	protected boolean Raubtier;
 	protected String TypName;
-
+	
+	
 	public Tier(String name, Zoo zoo) {
 		this.setName(name);
-		this.Gehege_typ = Gehege_typ;
+		this.Gehege_typ = Gehege_typ; //no effect
 		this.setZoo(zoo);
 		this.Raubtier = false;
 		
 	}
 
+////////Methods from Interface ITier
 	public String getName() {
 		return name;
 	}
@@ -41,11 +43,12 @@ public abstract class Tier implements ITier{
 	}
 	
 	public void fuettere(Personal personal){
-		System.out.println(this.name + " wird von " + personal.getName() + " gefuettert.");
+		System.out.println(this.name + " wird von " + personal.getName() + " gefüttert.");
 	}
 	
-	public void lebtIn(/*String Gehege, Gehege neuesGehege, */Gehege gehege) {
-		System.out.print(name + " lebt im Gehege " + gehege.getName());
+	//sehe es wurd mit addTier geregelt
+	public void lebtIn(/*String Gehege, Gehege neuesGehege, */Gehege gehege) { //Assoziation wenn mich nicht alles täuscht
+		System.out.print(this.name + " lebt im Gehege " + gehege.getName());
 	}
 	
 	public int getGehege_typ() {
@@ -56,11 +59,14 @@ public abstract class Tier implements ITier{
 		return this.Raubtier;
 	}
 
-	public Gehege getGehege() {
+	public Gehege getGehege() { 
 		return gehege;
 	}
 
-	public void setGehege(Gehege gehege) {
-			this.gehege = gehege;
+	public void setGehege(Gehege gehege) { //für Zuordnung
+		this.gehege = gehege;
 	}
+	
+	
+	
 }
