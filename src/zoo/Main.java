@@ -225,10 +225,6 @@ public class Main {
 		
 		Willy.besucht(sayan_zoo.getGehege(aqua_gehege_names[1]));
 		
-		Zoo neua_zoo = new Zoo("neua_zoo");
-		neua_zoo.addGehege(2, "MenschenGehege");
-		Willy.besucht(neua_zoo.getGehege("MenschenGehege"));
-		System.out.println(Willy.getGehege().getOwner().getBesucher("Willy").getName());
 		
 		vogel_gehege_names[0] = "Papageiengehege";
 		vogel_gehege_names[1] = "Adlergehege";
