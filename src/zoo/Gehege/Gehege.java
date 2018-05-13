@@ -7,9 +7,11 @@ public abstract class Gehege {
 
 	private String name;
 	private Zoo owner;
-	protected Tier[] tiere = new Tier[10];
+	private Tier[] tiere = new Tier[10];
 	public int tier_array_index;
 	protected int Gehege_typ;
+	
+	
 	
 	public Gehege(String name, Zoo owner) {
 		this.setName(name);
@@ -36,7 +38,10 @@ public abstract class Gehege {
 		return Gehege_typ;
 	}
 
-	public abstract void setTiere(Tier[] tiere);
+	public void setTiere(Tier[] tiere) {
+		this.tiere = tiere;
+	}
+
 	public boolean addTier(Tier tier) {
 		if(this.isGeeignet(tier)==true) {
 			

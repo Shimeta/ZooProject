@@ -15,7 +15,7 @@ public class Vogelgehege extends Gehege {
 		// Hier muss noch eingeschränkt werden ... also dass z.B nur Vögel dem
 		// Vogelgehege zugeordnet werden dürfen
 
-		this.tiere = tiere;
+		super.setTiere(tiere);
 
 		this.tier_array_index = tiere.length;
 

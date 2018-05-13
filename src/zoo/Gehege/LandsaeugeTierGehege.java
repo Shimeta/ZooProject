@@ -15,7 +15,7 @@ public class LandsaeugeTierGehege extends Gehege {
 		//Hier muss noch eingeschränkt werden ... also dass z.B nur Vögel  Vogelgehege zugeordnet werden dürfen
 
 		
-		this.tiere = tiere;
+		super.setTiere(tiere);
 		
 		for(int i = 0; i < tiere.length; i++) {
 			
